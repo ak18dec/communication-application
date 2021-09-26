@@ -1,0 +1,140 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.main-section {
+    padding: 5px;
+    margin: 5px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+.user-type-container, .login-container, .login-form, .registration-form, .edit-user-info {
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 50px;
+
+}
+
+.existing-user-container, .new-user-cotainer, .login-form-section, .registration-form {
+    margin: 30px 60px 40px 60px;
+    padding-bottom: 10px;
+}
+
+.login-form-section, .registration-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+
+
+
+.login-btn, .register-btn {
+    padding: 10px 50px 10px 50px;
+    max-width: 20px !important;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+label {
+ float: left;
+ clear: left;
+ width: 100px;
+ text-align: left;
+}
+
+input {
+    width: 250px;
+    padding: 8px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.email-section, .password-section, .button-section {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#login-submit-btn, #register-submit-btn {
+    text-align: center;
+    cursor: pointer;
+    width: 250px;
+    padding: 8px 20px;
+    display: inline-block;
+    
+}
+
+#login-submit-btn {
+    margin-left: 100px;
+}
+
+#register-submit-btn {
+    margin-top: 15px;
+}
+
+.registration-form input {
+    width: 400px;
+}
+
+.registration-form label {
+    width: 100px;
+}
+
+.nav-bar {
+    background-color: rgb(131, 128, 128);
+    overflow: hidden;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+ }
+
+ .nav-bar li {
+    border-bottom: 1px solid #555;
+    display: inline;
+    width: 100%;
+    
+ }
+
+ .nav-bar a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+ }
+
+ .nav-bar a:hover {
+    background-color: #ddd;
+    color: black;
+    font-weight: bold;
+  }
+
+ .nav-bar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+
+  .user-table table {
+    border-collapse: collapse;
+    width: 100%;
+    /* border-style: solid; */
+  }
+
+  .user-table td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  a {
+      cursor: pointer;
+  }
+  

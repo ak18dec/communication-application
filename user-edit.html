@@ -19,27 +19,25 @@
             <li><a href="/index.html">Logout</a></li>
         </ul>
     </div>
+    <div class="edit-user-info">
+        <form action="/manage-users.html" class="edit-user-form" autocomplete="off">
+            <div class="edit-user-section">
+                <div class="fullname-section">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" name="fullname" id="fullname">
+                </div>
 
-    <div class="user-table">
-        <h2>Users</h2>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>User Email ID</th>
-                <th>Actions</th>
-            </tr>
-            <script>
-                for(user of users){
-                    document.write("<tr>");
-                    document.write(`<td>${user.username}</td>`);
-                    document.write(`<td>${user.email}</td>`);
-                    document.write(`<td><a href="/user-edit.html">Edit</a> | <a onclick=deleteUser(user)>Delete</a></td>`);
-                    document.write("</tr>");
-                }
-            </script>
-        </table>
+                <div class="email-section">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                
+                <div class="button-section">
+                    <button type="submit" id="edit-user-save-btn">Save</button>
+                </div>
+            </div>
+        </form>
     </div>
-      
 </body>
 
 </html>
