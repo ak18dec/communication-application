@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script src="/main.js"></script>
 </head>
 
 <body>
@@ -30,10 +31,34 @@
                     <label for="confirm-password">Confirm Password</label>
                     <input type="password" name="confirm-password" id="confirm-password">
                 </div>
-                <button type="submit" id="register-submit-btn">Register</button>
+                <button type="submit" id="register-submit-btn" onclick="register()">Register</button>
             </form>
         </div>
     </div>
+
+    <script>
+
+        function register() {
+            let fullnameText = document.getElementById("fullname").innerHTML;
+            let emailText = document.getElementById("email").innerHTML;
+            let passwordText = document.getElementById("password").innerHTML;
+            let confirmPasswordText = document.getElementById("confirm-password").innerHTML;
+
+            let userFromLS = JSON.parse(localStorage.getItem("users"));
+
+            let newUser = {
+                username : fullnameText,
+                emai : emailText
+            }
+
+            userFromLS.push(newUser);
+
+            localStorage.setItem("users", JSON.stringify(userFromLS));
+
+        }
+
+
+    </script>
 </body>
 
 </html>
