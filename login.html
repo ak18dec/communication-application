@@ -7,13 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
 </head>
 
 <body>
     <div class="main-section">
         <div class="login-container">
             <h2>Login</h2>
-            <form action="/login-success.html" class="login-form" autocomplete="off">
+            <form class="login-form" autocomplete="off" method="dialog">
                 <div class="login-form-section">
                     <div class="email-section">
                         <label for="email">Email</label>
@@ -30,6 +31,26 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function login() {
+            let usersList = JSON.parse(localStorage.getItem("users"));
+            let emailText = document.getElementById("email").value;
+            let passwordText = document.getElementById("password").value;
+
+            let usr = usersList.find(u => u.email === emailText);
+
+            console.log(usr);
+
+            if(!usr){
+                alert("wrong credentials");
+                return;
+            }
+
+            window.location.href = 'login-success.html';
+        }  
+
+    </script>
 </body>
 
 </html>
