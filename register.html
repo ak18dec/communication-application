@@ -7,14 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
     <div class="main-section">
         <div class="register-container">
             <h2>Register</h2>
-            <form action="/register-success.html" class="registration-form" autocomplete="off">
+            <form class="registration-form" autocomplete="off" method="dialog">
                 <div class="full-name-section">
                     <label for="fullname">Full Name</label>
                     <input type="text" name="fullname" id="fullname">
@@ -37,12 +37,11 @@
     </div>
 
     <script>
-
         function register() {
-            let fullnameText = document.getElementById("fullname").innerHTML;
-            let emailText = document.getElementById("email").innerHTML;
-            let passwordText = document.getElementById("password").innerHTML;
-            let confirmPasswordText = document.getElementById("confirm-password").innerHTML;
+            let fullnameText = document.getElementById("fullname").value;
+            let emailText = document.getElementById("email").value;
+            let passwordText = document.getElementById("password").value;
+            let confirmPasswordText = document.getElementById("confirm-password").value;
 
             let userFromLS = JSON.parse(localStorage.getItem("users"));
 
@@ -55,9 +54,9 @@
 
             localStorage.setItem("users", JSON.stringify(userFromLS));
 
+            window.location.href = "register-success.html";
+
         }
-
-
     </script>
 </body>
 

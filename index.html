@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,7 @@
         <div class="user-type-container">
             <div class="existing-user-container">
                 <h3 class="existing-user-label">Existing Users</h3>
-                <a href="login.html" class="login-btn">Login Button</a>
+                <a href="login.html" class="login-btn">Login</a>
             </div>
             <div class="new-user-cotainer">
                 <h3 class="new-user-label">New Users</h3>
@@ -47,9 +48,19 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script> -->
 
-    <script>
-        
-    </script>
+        <script>
+            //Anonymous function load the default userlist in localstorage on application start
+            (function () {
+                
+                let user_ls = JSON.parse(localStorage.getItem("users"));
+    
+                if(user_ls && user_ls.length > 0) {
+                    return;
+                }else{
+                    localStorage.setItem("users", JSON.stringify(users));
+                }
+            })();
+        </script>
 </body>
 
 </html>

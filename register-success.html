@@ -7,14 +7,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script src="main.js"></script>
 </head>
 
 <body>
     <div class="main-section">
         <h2>Registration Successful</h2>
         <h3>Thank you for your registration</h3>
-        <a href="/index.html">Click to return to home page</a>
+        <a href="index.html">Click to return to home page</a>
     </div>
+
+    <script>
+        document.write(JSON.parse(localStorage.getItem('users')));
+    </script>
 </body>
 
 </html>
