@@ -7,20 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
     <div class="nav-bar">
         <ul>
-            <li><a href="/group-chat.html">Group Chat</a></li>
-            <li><a href="/manage-users.html" class="active">Manage Users</a></li>
-            <li><a href="/manage-documents.html">Manage Documents</a></li>
-            <li><a href="/index.html">Logout</a></li>
+            <li><a href="group-chat.html">Group Chat</a></li>
+            <li><a href="manage-users.html" class="active">Manage Users</a></li>
+            <li><a href="manage-documents.html">Manage Documents</a></li>
+            <li><a href="index.html">Logout</a></li>
         </ul>
     </div>
     <div class="edit-user-info">
-        <form action="/manage-users.html" class="edit-user-form" autocomplete="off">
+        <form class="edit-user-form" autocomplete="off" method="dialog">
             <div class="edit-user-section">
                 <div class="fullname-section">
                     <label for="fullname">Full Name</label>
@@ -38,6 +38,12 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function updateUser() {
+            window.location.href = "manage-users.html";
+        }
+    </script>
 </body>
 
 </html>

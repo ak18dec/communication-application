@@ -7,16 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <script src="/main.js"></script>
+    <script src="main.js"></script>
 </head>
 
 <body>
     <div class="nav-bar">
         <ul>
-            <li><a href="/group-chat.html">Group Chat</a></li>
-            <li><a href="/manage-users.html" class="active">Manage Users</a></li>
-            <li><a href="/manage-documents.html">Manage Documents</a></li>
-            <li><a href="/index.html">Logout</a></li>
+            <li><a href="group-chat.html">Group Chat</a></li>
+            <li><a href="manage-users.html" class="active">Manage Users</a></li>
+            <li><a href="manage-documents.html">Manage Documents</a></li>
+            <li><a href="index.html">Logout</a></li>
         </ul>
     </div>
 
@@ -33,7 +33,7 @@
                     document.write("<tr>");
                     document.write(`<td>${user.username}</td>`);
                     document.write(`<td>${user.email}</td>`);
-                    document.write(`<td><a href="/user-edit.html">Edit</a> | <a onclick=deleteUser(user)>Delete</a></td>`);
+                    document.write(`<td><a href="user-edit.html">Edit</a> | <a onclick=deleteUser(user)>Delete</a></td>`);
                     document.write("</tr>");
                 }
             </script>

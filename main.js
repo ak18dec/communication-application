@@ -12,7 +12,3 @@ var users = [
         email: "jale@yahoo.com"
     }
 ]
-
-function deleteUser(user) {
-    alert(JSON.stringify(user));
-}
