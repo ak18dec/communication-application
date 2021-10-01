@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script>
+        var docsFromLS = JSON.parse(localStorage.getItem("documents_uploaded"));
+    </script>
 </head>
 
 <body>
@@ -18,6 +21,77 @@
             <li><a href="index.html">Logout</a></li>
         </ul>
     </div>
+
+    <div class="docScreen">
+        <h3>My Uploads</h3>
+        <table class="docs-table">
+            <tr>
+                <th>Label</th>
+                <th>File Name</th>
+                <th>Action</th>
+            </tr>
+
+            <script>
+                console.log(docsFromLS);
+                for(let docs of docsFromLS) {
+                    document.write("<tr>");
+                    document.write(`<td>${docs}</td>`);
+                    document.write(`<td>${docs}</td>`);
+                    document.write(`<td><a>Edit</a> | <a>Delete</a></td>`);
+                    document.write("</tr>");
+                }
+            </script>
+        </table>
+
+        <menu>
+            <button id="updateDetails">Upload</button>
+        </menu>
+
+        <dialog id="favDialog">
+            <form method="dialog" enctype="multipart/form-data">
+                <div>
+                    <label for="profile_pic">Choose file to upload</label>
+                    <input type="file" id="profile_pic" name="profile_pic" accept=".jpg, .jpeg, .png">
+                </div>
+                <div>
+                    <button value="cancel">Cancel</button>
+                    <button onclick="savefile()">Submit</button>
+                </div>
+            </form>
+        </dialog>
+    </div>
+
+    
+    <script>
+        var updateButton = document.getElementById('updateDetails');
+        var favDialog = document.getElementById('favDialog');
+
+        // "Update details" button opens the <dialog> modally
+        updateButton.addEventListener('click', function onOpen() {
+            if (typeof favDialog.showModal === "function") {
+                favDialog.showModal();
+            } else {
+                alert("The <dialog> API is not supported by this browser");
+            }
+        });
+
+        favDialog.addEventListener('close', function onClose() {
+            
+        });
+
+
+        function savefile() {
+            var fake_path = document.getElementById('profile_pic').value;
+            var filname = fake_path.split("\\").pop();
+
+            
+
+            docsFromLS.push(filname);
+
+            localStorage.setItem("documents_uploaded", JSON.stringify(docsFromLS));
+            window.location.href = 'manage-documents.html';
+        }
+    </script>
 </body>
 
 </html>

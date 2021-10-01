@@ -53,12 +53,22 @@
             (function () {
                 
                 let user_ls = JSON.parse(localStorage.getItem("users"));
+                let documents_uploaded = JSON.parse(localStorage.getItem("documents_uploaded"));
     
-                if(user_ls && user_ls.length > 0) {
-                    return;
-                }else{
-                    localStorage.setItem("users", JSON.stringify(users));
+                if(!user_ls || user_ls.length < 1) {
+                if(user_ls === null || user_ls === undefined){
+                    user_ls = [];
                 }
+                localStorage.setItem("users", JSON.stringify(users));
+            }
+
+            if(!documents_uploaded || !documents_uploaded.length < 1){
+
+                if(documents_uploaded === null || documents_uploaded === undefined){
+                    documents_uploaded = [];
+                }
+                localStorage.setItem("documents_uploaded", JSON.stringify(documents_uploaded));
+            }
             })();
         </script>
 </body>

@@ -29,11 +29,11 @@
                 <th>Actions</th>
             </tr>
             <script>
-                for(user of users){
+                for(let user of users){
                     document.write("<tr>");
                     document.write(`<td>${user.username}</td>`);
                     document.write(`<td>${user.email}</td>`);
-                    document.write(`<td><a href="user-edit.html">Edit</a> | <a onclick=deleteUser(user)>Delete</a></td>`);
+                    document.write(`<td><a href="user-edit.html">Edit</a> | <a onclick=deleteUser(user.value)>Delete</a></td>`);
                     document.write("</tr>");
                 }
             </script>
