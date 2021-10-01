@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <script src="main.js"></script>
 </head>
 
 <body>
@@ -33,15 +32,37 @@
                 </div>
                 
                 <div class="button-section">
-                    <button type="submit" id="edit-user-save-btn">Save</button>
+                    <button type="submit" id="edit-user-save-btn" onclick="updateUser()">Save</button>
                 </div>
             </div>
         </form>
     </div>
+    <script>
+        //Anonymous function load the selected user data
+        (function () {
+            let selected_user = JSON.parse(localStorage.getItem("user_to_edit"));
+            document.getElementById('fullname').value = selected_user.username;
+            document.getElementById('email').value = selected_user.email;
 
+        })();
+    </script>
     <script>
         function updateUser() {
-            window.location.href = "manage-users.html";
+            let updatedFullName = document.getElementById("fullname").value;
+            let updatedEmail = document.getElementById("email").value;
+            // let passwordText = document.getElementById("password").value;
+            // let confirmPasswordText = document.getElementById("confirm-password").value;
+
+            let userFromLS1 = JSON.parse(localStorage.getItem("users"));
+
+            let old_user_idx = localStorage.getItem('user_to_edit_idx');
+
+            userFromLS1[old_user_idx].username = updatedFullName;
+            userFromLS1[old_user_idx].email = updatedEmail;            
+
+            localStorage.setItem("users", JSON.stringify(userFromLS1));
+
+            window.location.href = 'manage-users.html';
         }
     </script>
 </body>

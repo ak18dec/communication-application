@@ -7,7 +7,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    <script src="main.js"></script>
 </head>
 
 <body>
@@ -29,12 +28,35 @@
                 <th>Actions</th>
             </tr>
             <script>
-                for(let user of users){
-                    document.write("<tr>");
-                    document.write(`<td>${user.username}</td>`);
-                    document.write(`<td>${user.email}</td>`);
-                    document.write(`<td><a href="user-edit.html">Edit</a> | <a onclick=deleteUser(user.value)>Delete</a></td>`);
-                    document.write("</tr>");
+                var users1 = JSON.parse(localStorage.getItem("users"));
+                for(i=0;i<users1.length;i++){
+                    let str = `<tr>
+                    <td>${users1[i].username}</td>
+                    <td>${users1[i].email}</td>
+                    <td><a onclick="redirectToEditUser(${i})">Edit</a> | <a onclick=deleteUser(${i})>Delete</a></td>
+                    </tr>`;
+
+                    document.write(str);
+                }
+
+                function deleteUser(idx) {
+                    let usr = users1[idx];
+
+                    let filtered_users = users1.filter(u => u.email !== usr.email);
+                    localStorage.setItem("users", JSON.stringify(filtered_users));
+                    window.location.reload();
+                }
+
+                function redirectToEditUser(n) {
+                   let oldEditUser = localStorage.getItem('user_to_edit');
+                   if(oldEditUser){
+                       localStorage.removeItem('user_to_edit');
+                       localStorage.removeItem('user_to_edit_idx')
+                   }
+                   localStorage.setItem('user_to_edit', JSON.stringify(users1[n]));
+                   localStorage.setItem('user_to_edit_idx', JSON.stringify(n));
+
+                   window.location.href = 'user-edit.html'
                 }
             </script>
         </table>
